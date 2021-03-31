@@ -12,15 +12,22 @@ class Permission extends Model
     use SoftDeletes;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'slug', 'description'];
+
+    /**
      * Create a new Eloquent model instance.
      *
      * @param  array  $attributes
      */
     public function __construct(array $attributes = [])
     {
-        parent::__construct($attributes);
-
         $this->table = Config::get('rbac.tables.permissions');
+
+        parent::__construct($attributes);
     }
 
     /**
