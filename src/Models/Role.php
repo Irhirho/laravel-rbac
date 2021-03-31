@@ -4,14 +4,11 @@ namespace HuangYi\Rbac\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 
 class Role extends Model
 {
-    use SoftDeletes;
-
     /**
      * The attributes that are mass assignable.
      *

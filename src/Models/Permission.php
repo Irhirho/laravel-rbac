@@ -2,15 +2,12 @@
 
 namespace HuangYi\Rbac\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
 
 class Permission extends Model
 {
-    use SoftDeletes;
-
     /**
      * The attributes that are mass assignable.
      *
