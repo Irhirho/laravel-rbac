@@ -34,6 +34,10 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissions');
+        $config = App::make('config')->get('rbac');
+
+        $permissionsTable = $config['tables']['permissions'];
+
+        Schema::dropIfExists($permissionsTable);
     }
 }

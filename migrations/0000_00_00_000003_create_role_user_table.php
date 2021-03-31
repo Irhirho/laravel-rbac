@@ -36,6 +36,10 @@ class CreateRoleUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_user');
+        $config = App::make('config')->get('rbac');
+
+        $roleUserTable = $config['tables']['role_user'];
+
+        Schema::dropIfExists($roleUserTable);
     }
 }
