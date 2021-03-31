@@ -52,7 +52,7 @@ class Permission extends Model
     {
         $permissionRoleTable = Config::get('rbac.tables.permission_role');
 
-        return $this->belongsToMany(Permission::class, $permissionRoleTable, 'permission_id', 'role_id');
+        return $this->belongsToMany(Role::class, $permissionRoleTable, 'permission_id', 'role_id');
     }
 
     /**
