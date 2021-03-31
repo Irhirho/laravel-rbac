@@ -59,7 +59,7 @@ class Role extends Model
         $user = Config::get('rbac.user');
         $roleUserTable = Config::get('rbac.tables.role_user');
 
-        return $this->belongsToMany($user, $roleUserTable, 'role_id', 'user_id');
+        return $this->belongsToMany($user, $roleUserTable, 'user_id', 'role_id');
     }
 
     /**
@@ -69,7 +69,7 @@ class Role extends Model
     {
         $permissionRoleTable = Config::get('rbac.tables.permission_role');
 
-        return $this->belongsToMany(Role::class, $permissionRoleTable, 'permission_id', 'role_id');
+        return $this->belongsToMany(Role::class, $permissionRoleTable, 'role_id', 'permission_id');
     }
 
     /**

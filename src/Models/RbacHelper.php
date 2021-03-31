@@ -25,7 +25,7 @@ trait RbacHelper
     {
         $roleUserTable = Config::get('rbac.tables.role_user');
 
-        return $this->belongsToMany(Role::class, $roleUserTable, 'user_id', 'role_id');
+        return $this->belongsToMany(Role::class, $roleUserTable, 'role_id', 'user_id');
     }
 
     /**
