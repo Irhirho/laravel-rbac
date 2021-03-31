@@ -22,7 +22,7 @@ class CreateRoleUserTable extends Migration
 
         Schema::create($roleUserTable, function (Blueprint $table) use ($rolesTable, $user) {
             $table->unsignedInteger('role_id');
-            $table->unsignedInteger('user_id');
+            $table->string('user_id');
 
             $table->foreign('role_id')->references('id')->on($rolesTable);
             $table->foreign('user_id')->references($user->getKeyName())->on($user->getTable());
