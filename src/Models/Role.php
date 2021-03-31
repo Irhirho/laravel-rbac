@@ -13,6 +13,13 @@ class Role extends Model
     use SoftDeletes;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'slug', 'description'];
+
+    /**
      * @var \Illuminate\Database\Eloquent\Collection
      */
     protected $cachedPermissions;
