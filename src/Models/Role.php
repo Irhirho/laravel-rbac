@@ -147,7 +147,7 @@ class Role extends Model
      */
     public function hasPermission($permission)
     {
-        return $this->cached_permissions->where('slug', $permission)->count() > 1;
+        return $this->cached_permissions->where('slug', $permission)->count() > 0;
     }
 
     /**

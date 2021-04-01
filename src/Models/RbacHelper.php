@@ -98,7 +98,7 @@ trait RbacHelper
      */
     public function hasRole($role)
     {
-        return $this->cached_roles->where('slug', $role)->count() > 1;
+        return $this->cached_roles->where('slug', $role)->count() > 0;
     }
 
     /**
@@ -129,7 +129,7 @@ trait RbacHelper
      */
     public function hasPermission($permission)
     {
-        return $this->cached_permissions->where('slug', $permission)->count() > 1;
+        return $this->cached_permissions->where('slug', $permission)->count() > 0;
     }
 
     /**
