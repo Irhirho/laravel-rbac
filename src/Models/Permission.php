@@ -40,6 +40,10 @@ class Permission extends Model
             $permission->forgetCaches();
         });
 
+        self::deleting(function (self $permission) {
+            $permission->roles()->sync([]);
+        });
+
         self::deleted(function (self $permission) {
             $permission->forgetCaches();
         });

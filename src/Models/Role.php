@@ -46,6 +46,11 @@ class Role extends Model
             $role->forgetCaches();
         });
 
+        self::deleting(function (self $role) {
+            $role->permissions()->sync([]);
+            $role->users()->sync([]);
+        });
+
         self::deleted(function (self $role) {
             $role->forgetCaches();
         });
