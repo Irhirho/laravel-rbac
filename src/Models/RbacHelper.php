@@ -129,6 +129,10 @@ trait RbacHelper
      */
     public function hasPermission($permission)
     {
+        if ($this->isGod()) {
+            return true;
+        }
+
         return $this->cached_permissions->where('slug', $permission)->count() > 0;
     }
 
@@ -141,6 +145,10 @@ trait RbacHelper
      */
     public function hasPermissions(array $permissions, $all = true)
     {
+        if ($this->isGod()) {
+            return true;
+        }
+
         $slugs = $this->cached_permissions->pluck('slug')->toArray();
 
         $intersects = array_intersect($slugs, $permissions);
@@ -150,6 +158,16 @@ trait RbacHelper
         }
 
         return count($intersects) > 0;
+    }
+
+    /**
+     * If the user has a god role.
+     *
+     * @return bool
+     */
+    public function isGod()
+    {
+        return $this->hasRole(Config::get('rbac.god_role'));
     }
 
     /**
